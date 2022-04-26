@@ -1,0 +1,23 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.text {
+  padding-right: 100px;
+}
+
+.inputfield {
+  width: 20%;
+  margin-left: 10px;
+  margin-right: 110px;
+}
+
+.email {
+  margin-left: 16px;
+  float: left;
+}
+
+.emailinput {
+  width: 95%;
+}
