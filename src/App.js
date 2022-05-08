@@ -1,48 +1,87 @@
-import "./styles.css";
+import React, { useState } from "react";
 
-export default function App() {
+function App() {
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [found, setFound] = useState("");
+  const [list, setList] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, lastname, email, birthdate, found);
+    const date = { name, lastname, email, birthdate, found };
+    if (name && lastname && email && birthdate && found) {
+      setList((ls) => [...ls, date]);
+      setName("");
+      setLastname("");
+      setEmail("");
+      setBirthdate("");
+      setFound("");
+    }
+  };
+
   return (
-    <div className="App">
-      <form>
+    <div>
+      <h1>React </h1>
+      <form onSubmit={handleSubmit}>
         <label className="text">Voornaam zoals in paspoort</label>
+        <input
+          name="name"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <label className="text">Achternaam zoals in paspoort</label>
+        <input
+          name="lastname"
+          placeholder="Lastname"
+          value={lastname}
+          onChange={(e) => setLastname(e.target.value)}
+        />
 
-        <br></br>
+        <label className="text">Email</label>
+        <input
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-        <input type="text" className="inputfield" required />
-        <input type="text" className="inputfield" required />
-
-        <br></br>
-
-        <label className="email">Email</label>
-
-        <br></br>
-
-        <input type="text" className="emailinput" required />
-
-        <br></br>
-
-        <label className="birthdate">
+        <label className="text">
           Je geboortedatum (minimumleeftijd voor vrije werkers is 16 jaar)
         </label>
+        <input
+          name="birthdate"
+          placeholder="Birthdate"
+          value={birthdate}
+          onChange={(e) => setBirthdate(e.target.value)}
+        />
 
-        <br></br>
+        <label className="text">Hoe heb je ons gevonden?</label>
+        <input
+          name="found"
+          placeholder="Found"
+          value={found}
+          onChange={(e) => setFound(e.target.value)}
+        />
 
-        <input type="date" name="name" required />
-
-        <br></br>
-
-        <label className="birthdate">Hoe heb je ons gevonden?</label>
-
-        <br></br>
-
-        <input type="text" className="vinden" required />
-
-        <br></br>
-
-        <input type="submit" value="submit" />
+        <button>Add</button>
       </form>
+
+      {list.map((a) => (
+        <div>
+          <li>{"Naam: " + a.name}</li>
+          <li>{"Achternaam: " + a.lastname}</li>
+          <li>{"Email: " + a.email}</li>
+          <li>{"Geboorte Datum: " + a.birthdate}</li>
+          <li>{"Hoe heb je ons gevonden: " + a.found}</li>
+        </div>
+      ))}
     </div>
   );
 }
+
+export default App;
