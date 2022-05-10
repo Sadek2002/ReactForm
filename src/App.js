@@ -34,38 +34,44 @@ function App() {
     <div>
       <h1>React </h1>
       <form onSubmit={handleSubmit}>
-        <label className="text">Voornaam zoals in paspoort</label>
+        <label className="text">Voornaam zoals in paspoort </label>
         <input
-          key="name"
+          id="name"
           name="name"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
-        <label className="text">Achternaam zoals in paspoort</label>
+        <br></br>
+
+        <label className="text">Achternaam zoals in paspoort </label>
         <input
-          key="lastname"
+          id="lastname"
           name="lastname"
           placeholder="Lastname"
           value={lastname}
           onChange={(e) => setLastname(e.target.value)}
         />
 
-        <label className="text">Email</label>
+        <br></br>
+
+        <label className="text">Email </label>
         <input
-          key="email"
+          id="email"
           name="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        <br></br>
+
         <label className="text">
           Je geboortedatum (minimumleeftijd voor vrije werkers is 16 jaar)
         </label>
         <input
-          key="date"
+          id="date"
           type="date"
           name="birthdate"
           placeholder="Birthdate"
@@ -73,14 +79,18 @@ function App() {
           onChange={(e) => setBirthdate(e.target.value)}
         />
 
-        <label className="text">Hoe heb je ons gevonden?</label>
+        <br></br>
+
+        <label className="text">Hoe heb je ons gevonden? </label>
         <input
-          key="found"
+          id="found"
           name="found"
           placeholder="Found"
           value={found}
           onChange={(e) => setFound(e.target.value)}
         />
+
+        <br></br>
 
         <button>Register</button>
       </form>
