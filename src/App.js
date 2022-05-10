@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div>
-      <h1>React </h1>
+      <h1>React Form</h1>
       <form onSubmit={handleSubmit}>
         <label className="text">Voornaam zoals in paspoort </label>
         <input
