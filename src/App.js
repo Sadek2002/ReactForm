@@ -10,7 +10,13 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, lastname, email, birthdate, found);
+    console.log(
+      "Name: " + name,
+      "Lastname: " + lastname,
+      "Email: " + email,
+      "Birthdate: " + birthdate,
+      "Found: " + found
+    );
     const date = { name, lastname, email, birthdate, found };
     if (name && lastname && email && birthdate && found) {
       setList((ls) => [...ls, date]);
@@ -19,6 +25,8 @@ function App() {
       setEmail("");
       setBirthdate("");
       setFound("");
+    } else {
+      alert("Formulier niet volledig ingevuld!");
     }
   };
 
@@ -28,6 +36,7 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label className="text">Voornaam zoals in paspoort</label>
         <input
+          key="name"
           name="name"
           placeholder="Name"
           value={name}
@@ -36,6 +45,7 @@ function App() {
 
         <label className="text">Achternaam zoals in paspoort</label>
         <input
+          key="lastname"
           name="lastname"
           placeholder="Lastname"
           value={lastname}
@@ -44,6 +54,7 @@ function App() {
 
         <label className="text">Email</label>
         <input
+          key="email"
           name="email"
           placeholder="Email"
           value={email}
@@ -54,6 +65,8 @@ function App() {
           Je geboortedatum (minimumleeftijd voor vrije werkers is 16 jaar)
         </label>
         <input
+          key="date"
+          type="date"
           name="birthdate"
           placeholder="Birthdate"
           value={birthdate}
@@ -62,13 +75,14 @@ function App() {
 
         <label className="text">Hoe heb je ons gevonden?</label>
         <input
+          key="found"
           name="found"
           placeholder="Found"
           value={found}
           onChange={(e) => setFound(e.target.value)}
         />
 
-        <button>Add</button>
+        <button>Register</button>
       </form>
 
       {list.map((a) => (
